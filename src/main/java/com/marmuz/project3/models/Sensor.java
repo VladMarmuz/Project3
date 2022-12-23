@@ -31,6 +31,10 @@ public class Sensor {
         this.indications = indications;
     }
 
+    public Sensor(String name) {
+
+    }
+
     public int getId() {
         return id;
     }

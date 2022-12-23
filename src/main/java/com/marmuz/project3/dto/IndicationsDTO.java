@@ -1,20 +1,18 @@
 package com.marmuz.project3.dto;
 
-import com.marmuz.project3.models.Sensor;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public class IndicationsDTO {
-
-    @NotEmpty(message = "Value should not be empty")
-    @Size(min = -100,max = 100,message = "Value should be between -100 and 100 *C")
+    @NotNull
+    @Min(-100)
+    @Max(100)
     private Double value;
 
-    @NotEmpty(message = "Raining should not be empty")
+    @NotNull
     private boolean raining;
 
-    @NotEmpty(message = "Sensor should not be empty")
-    private Sensor sensor;
+    @NotNull
+    private SensorDTO sensorDTO;
 
     public Double getValue() {
         return value;
@@ -32,11 +30,11 @@ public class IndicationsDTO {
         this.raining = raining;
     }
 
-    public Sensor getSensor() {
-        return sensor;
+    public SensorDTO getSensorDTO() {
+        return sensorDTO;
     }
 
-    public void setSensor(Sensor sensor) {
-        this.sensor = sensor;
+    public void setSensorDTO(SensorDTO sensorDTO) {
+        this.sensorDTO = sensorDTO;
     }
 }

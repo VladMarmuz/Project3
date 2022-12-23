@@ -1,8 +1,7 @@
 package com.marmuz.project3.models;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 import java.time.LocalDateTime;
 
@@ -15,20 +14,21 @@ public class Indications {
     private int id;
 
     @Column(name = "value")
-    @NotEmpty(message = "Value should not be empty")
-    @Size(min = -100,max = 100,message = "Value should be between -100 and 100 *C")
+    @NotNull
+    @Min(-100)
+    @Max(100)
     private Double value;
     @Column(name = "raining")
-    @NotEmpty(message = "Raining should not be empty")
+    @NotNull
     private boolean raining;
 
     @ManyToOne
     @JoinColumn(name = "sensor_id",referencedColumnName = "id")
-    @NotEmpty(message = "Sensor should not be empty")
+    @NotNull(message = "Sensor should not be empty")
     private Sensor sensor;
 
     @Column(name = "created_at")
-    @NotEmpty
+    @NotNull
     private LocalDateTime created_at;
 
     public Indications() {

@@ -1,0 +1,3 @@
+[submodule "Project3Client"]
+	path = Project3Client
+	url = https://github.com/VladMarmuz/Project3Client.git
